@@ -50,9 +50,9 @@
 
         letter_sub {
             bindings = <
-&kp AT   &kp J  &kp M  &kp B  &kp SQT   &kp TAB    &none &none &none &none &none &none
-&kp DOT  &kp V  &kp C  &kp L  &kp Z     &kp Q      &none &none &none &none &none &none
-&trans   &kp X  &kp G  &kp K  &kp DQUOT &kp BSPC   &none &none &none &none &none &none
+&sl NUM    &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
+&kp ENTER  &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
+&kp LSHFT  &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
                        &kp COMMA &mo FN &trans     &none &none &none
             >;
         };
