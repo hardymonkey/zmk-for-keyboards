@@ -48,13 +48,12 @@
             >;
         };
 
-        /* Layer 1: Letter Sub Layer (กด Space ค้างไว้) */
         letter_sub {
             bindings = <
-&kp AT     &kp J  &kp M  &kp B  &kp SQT   &kp TAB    &none &none &none &none &none &none
-&kp DOT    &kp V  &kp C  &kp L  &kp Z     &kp Q      &none &none &none &none &none &none
-&trans     &kp X  &kp G  &kp K  &kp DQUOT &kp BSPC   &none &none &none &none &none &none
-                         &kp COMMA &mo FN &trans     &none &none &none
+&kp AT   &kp J  &kp M  &kp B  &kp SQT   &kp TAB    &none &none &none &none &none &none
+&kp DOT  &kp V  &kp C  &kp L  &kp Z     &kp Q      &none &none &none &none &none &none
+&trans   &kp X  &kp G  &kp K  &kp DQUOT &kp BSPC   &none &none &none &none &none &none
+                       &kp COMMA &mo FN &trans     &none &none &none
             >;
         };
 
