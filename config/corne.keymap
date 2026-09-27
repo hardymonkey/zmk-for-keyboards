@@ -100,8 +100,8 @@ letter_sub {
         /* Layer 6: FN */
         fn_layer {
             bindings = <
-&kp LGUI       &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
-&kp LNLCK      &kp PG_DN  &kp UP          &kp LALT   &kp LCTRL  &kp INS      &none &none &none &none &none &none
+&sk LGUI       &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
+&kp LNLCK      &kp PG_DN  &kp UP          &sk LALT   &sk LCTRL  &kp INS      &none &none &none &none &none &none
 &kp SLCK       &kp LEFT   &kp DOWN        &kp RIGHT  &kp PSCRN  &kp DEL      &none &none &none &none &none &none
                                           &sl SYM    &trans     &sl NUM      &none &none &none
             >;
