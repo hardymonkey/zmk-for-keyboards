@@ -10,7 +10,14 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 / {
+    behaviors {
 
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+    };
 
     keymap {
         compatible = "zmk,keymap";
