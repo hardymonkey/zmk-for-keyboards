@@ -29,6 +29,18 @@
             flavor = "hold-preferred";
             bindings = <&mo>, <&kp>;
         };
+
+        /* Custom Sticky Key ที่ค้างไว้ได้นานโดยไม่หลุด timeout เอง */
+        sk_long: sticky_key_long {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_KEY_LONG";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <30000>; /* ค้างรอไว้ได้นานถึง 30 วินาที */
+            quick-release;              /* ปลดล็อกทันทีเมื่อกดปุ่มอักขระถัดไป */
+            ignore-modifiers;           /* อนุญาตให้กด Modifier อื่นซ้ำเพื่อผสมกันได้ */
+        };
+
     };
 
     combos {
