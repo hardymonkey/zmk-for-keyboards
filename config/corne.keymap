@@ -64,6 +64,22 @@
 
     combos {
         compatible = "zmk,combos";
+
+        /* 1. กด FN + NUM พร้อมกัน = Toggle NUM Layer ค้างถาวร (&tog NUM) */
+        combo_tog_num {
+            timeout-ms = <50>;
+            key-positions = <0 37>; /* ตำแหน่งปุ่ม NUM (0) + FN (37) */
+            bindings = <&tog NUM>;
+            layers = <0>; /* ให้กดได้เฉพาะตอนอยู่หน้า Default Layer */
+        };
+
+        /* 2. กด FN + SYM พร้อมกัน = เรียกใช้ Sticky Shortcut Layer (&sl SHORTCUT) */
+        combo_sl_shortcut {
+            timeout-ms = <50>;
+            key-positions = <36 37>; /* ตำแหน่งปุ่ม SYM (36) + FN (37) */
+            bindings = <&sl SHORTCUT>;
+            layers = <0>; /* ให้กดได้เฉพาะตอนอยู่หน้า Default Layer */
+        };
     };
 
     keymap {
@@ -72,19 +88,19 @@
         /* Layer 0: Default Layer (มือซ้ายข้างเดียว) */
         default_layer {
             bindings = <
-&td_num              &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
+&sl NUM              &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
 &kp ENTER            &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
 &td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
-                     &mo FN    &ht_sym_shortcut SHORTCUT SYM    &lt_spc LETTER_SUB SPACE &none &none &none
+                     &sl SYM    &mo FN    &lt_spc LETTER_SUB SPACE &none &none &none
             >;
         };
 
         letter_sub {
             bindings = <
-&kp AT   &kp J  &kp M  &kp B  &kp SQT   &kp TAB    &none &none &none &none &none &none
-&kp DOT  &kp V  &kp C  &kp L  &kp Z     &kp Q      &none &none &none &none &none &none
-&trans   &kp X  &kp G  &kp K  &kp DQT   &kp BSPC   &none &none &none &none &none &none
-                       &kp QUESTION     &kp COMMA    &trans     &none &none &none
+&kp AT   &kp J  &kp M  &kp B  &kp SQT   &kp TAB        &none &none &none &none &none &none
+&kp DOT  &kp V  &kp C  &kp L  &kp Z     &kp Q          &none &none &none &none &none &none
+&trans   &kp X  &kp G  &kp K  &kp DQT   &kp BSPC       &none &none &none &none &none &none
+                &kp COMMA    &kp QUESTION   &trans     &none &none &none
             >;
         };
 
