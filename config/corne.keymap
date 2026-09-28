@@ -40,26 +40,30 @@
             bindings = <&kp LSHFT>, <&kt LSHFT>, <&kp CAPS>;
         };
 
+        /* Tap-Dance สำหรับ NUM: กด 1 ที = &sl NUM / กด 2 ที = &tog NUM */
+        td_num: tap_dance_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_NUM";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl NUM>, <&tog NUM>;
+        };
+
+        /* Hold-Tap SYM: ปรับจังหวะให้ &sl ทำงานสมบูรณ์ก่อนรับปุ่ม Space */
+        ht_sym_shortcut: hold_tap_sym_shortcut {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_SYM_SHORTCUT";
+            #binding-cells = <2>;
+            flavor = "balanced";       /* ปรับเป็น balanced เพื่อให้เคาะ Tap ได้ไวและเด็ดขาดขึ้น */
+            tapping-term-ms = <170>;   /* ลดเวลาลงเล็กน้อยเพื่อให้ส่ง &sl เร็วขึ้น */
+            quick-tap-ms = <125>;      /* ช่วยให้กดพิมพ์รัวๆ ต่อเนื่องได้ไม่หลุด */
+            bindings = <&mo>, <&sl>;
+        };
+
     };
 
     combos {
         compatible = "zmk,combos";
-
-        /* 1. กด FN + NUM พร้อมกัน = Toggle NUM Layer ค้างถาวร (&tog NUM) */
-        combo_tog_num {
-            timeout-ms = <50>;
-            key-positions = <0 37>; /* ตำแหน่งปุ่ม NUM (0) + FN (37) */
-            bindings = <&tog NUM>;
-            layers = <0>; /* ให้กดได้เฉพาะตอนอยู่หน้า Default Layer */
-        };
-
-        /* 2. กด FN + SYM พร้อมกัน = เรียกใช้ Sticky Shortcut Layer (&sl SHORTCUT) */
-        combo_sl_shortcut {
-            timeout-ms = <50>;
-            key-positions = <36 37>; /* ตำแหน่งปุ่ม SYM (36) + FN (37) */
-            bindings = <&sl SHORTCUT>;
-            layers = <0>; /* ให้กดได้เฉพาะตอนอยู่หน้า Default Layer */
-        };
     };
 
     keymap {
@@ -68,10 +72,10 @@
         /* Layer 0: Default Layer (มือซ้ายข้างเดียว) */
         default_layer {
             bindings = <
-&sl NUM              &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
-&kp ENTER            &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
-&td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
-                     &sl SYM    &mo FN    &lt_spc LETTER_SUB SPACE &none &none &none
+&sl NUM              &kp P  &kp W  &kp R  &kp A  &kp F                &none &none &none &none &none &none
+&kp ENTER            &kp D  &kp T  &kp H  &kp E  &kp O                &none &none &none &none &none &none
+&td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U                &none &none &none &none &none &none
+                     &sl SYM    &mo FN    &lt_spc LETTER_SUB SPACE    &none &none &none
             >;
         };
 
@@ -87,10 +91,10 @@
         /* Layer 2: NUM */
         num_layer {
             bindings = <
-&trans       &kp MINUS  &kp N7  &kp N8  &kp N9  &kp SLASH    &none &none &none &none &none &none
-&trans       &kp PLUS   &kp N4  &kp N5  &kp N6  &kp STAR     &none &none &none &none &none &none
-&trans       &kp N0     &kp N1  &kp N2  &kp N3  &kp EQUAL    &none &none &none &none &none &none
-                        &trans  &trans  &trans               &none &none &none
+&trans       &kp MINUS  &kp N7  &kp N8  &kp N9  &kp SLASH        &none &none &none &none &none &none
+&trans       &kp PLUS   &kp N4  &kp N5  &kp N6  &kp STAR         &none &none &none &none &none &none
+&trans       &kp N0     &kp N1  &kp N2  &kp N3  &kp EQUAL        &none &none &none &none &none &none
+                        &trans  &trans  &lt_spc NUM_SUB SPACE    &none &none &none
             >;
         };
 
@@ -110,7 +114,7 @@
 &trans    &kp SEMI   &kp COLON &kp STAR  &kp AMPS  &kp QUESTION    &none &none &none &none &none &none
 &trans    &kp UNDER  &kp AT    &kp MINUS &kp PRCNT &kp SLASH       &none &none &none &none &none &none
 &trans    &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT         &none &none &none &none &none &none
-                     &trans    &trans    &trans                    &none &none &none
+                     &trans    &trans    &lt_spc SYM_SUB SPACE     &none &none &none
             >;
         };
 
