@@ -57,7 +57,7 @@
             label = "TAP_DANCE_SHIFT_TOGGLE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&ht_shift_caps CAPS LSHFT>, <&skc>;
+            bindings = <&ht_shift_caps CAPS LSHFT>, <&kp K_CANCEL>;
         };
 
         /* --- CONTROL (CTRL) --- */
@@ -67,7 +67,7 @@
             label = "TAP_DANCE_CTRL";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sk_long LCTRL>, <&skc>;
+            bindings = <&sk_long LCTRL>, <&kp K_CANCEL>;
         };
 
         /* --- ALT --- */
@@ -77,7 +77,7 @@
             label = "TAP_DANCE_ALT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sk_long LALT>, <&skc>;
+            bindings = <&sk_long LALT>, <&kp K_CANCEL>;
         };
 
         /* --- GUI (WIN / CMD) --- */
@@ -87,7 +87,7 @@
             label = "TAP_DANCE_GUI";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sk_long LGUI>, <&skc>;
+            bindings = <&sk_long LGUI>, <&kp K_CANCEL>;
         };
 
     };
