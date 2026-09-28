@@ -36,10 +36,9 @@
             label = "STICKY_KEY_LONG";
             #binding-cells = <1>;
             bindings = <&kp>;
-            release-after-ms = <60000>; /* ค้างรอไว้ได้นานถึง 30 วินาที */
+            release-after-ms = <60000>; /* ค้างรอไว้ได้นานถึง 60 วินาที */
             quick-release;              /* ปลดล็อกทันทีเมื่อกดปุ่มอักขระถัดไป */
             ignore-modifiers;           /* อนุญาตให้กด Modifier อื่นซ้ำเพื่อผสมกันได้ */
-            retro-toggle;                 /* กดซ้ำปุ่มเดิมเพื่อยกเลิก/ปิด Sticky */
         };
 
         /* Hold-Tap: กดค้าง = Toggle Caps Lock / กดปล่อย = Sticky Shift */
@@ -50,6 +49,45 @@
             flavor = "hold-preferred";      /* เน้นเปิด Caps Lock เมื่อกดค้างเกิน tapping-term */
             tapping-term-ms = <200>;         /* ระยะเวลากดค้าง (มิลลิวินาที) */
             bindings = <&kp>, <&sk_long>;   /* Hold = kp (CAPS), Tap = sk_long (LSHFT) */
+        };
+
+        /* Tap-Dance: กด 1 ที = Sticky Shift / กด 2 ทีติดกัน = สั่งยกเลิก Sticky (&skc) */
+        td_shift_toggle: tap_dance_shift_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SHIFT_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&ht_shift_caps CAPS LSHFT>, <&skc>;
+        };
+
+        /* --- CONTROL (CTRL) --- */
+        /* Tap-Dance: กด 1 ที = Sticky Ctrl / กด 2 ที = Cancel (&skc) */
+        td_ctrl: tap_dance_ctrl {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_CTRL";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk_long LCTRL>, <&skc>;
+        };
+
+        /* --- ALT --- */
+        /* Tap-Dance: กด 1 ที = Sticky Alt / กด 2 ที = Cancel (&skc) */
+        td_alt: tap_dance_alt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_ALT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk_long LALT>, <&skc>;
+        };
+
+        /* --- GUI (WIN / CMD) --- */
+        /* Tap-Dance: กด 1 ที = Sticky GUI / กด 2 ที = Cancel (&skc) */
+        td_gui: tap_dance_gui {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_GUI";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk_long LGUI>, <&skc>;
         };
 
     };
@@ -64,9 +102,9 @@
         /* Layer 0: Default Layer (มือซ้ายข้างเดียว) */
         default_layer {
             bindings = <
-&sl NUM    &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
-&kp ENTER  &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
-&ht_shift_caps CAPS LSHFT  &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
+&sl NUM            &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
+&kp ENTER          &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
+&td_shift_toggle   &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
                          &sl SYM &mo FN &lt_spc LETTER_SUB SPACE &none &none &none
             >;
         };
@@ -83,9 +121,9 @@ letter_sub {
         /* Layer 2: NUM */
         num_layer {
             bindings = <
-&sl NUM    &kp MINUS  &kp N7  &kp N8  &kp N9  &kp SLASH    &none &none &none &none &none &none
-&kp ENTER  &kp PLUS   &kp N4  &kp N5  &kp N6  &kp STAR     &none &none &none &none &none &none
-&trans  &kp N0     &kp N1  &kp N2  &kp N3  &kp EQUAL    &none &none &none &none &none &none
+&sl NUM      &kp MINUS  &kp N7  &kp N8  &kp N9  &kp SLASH    &none &none &none &none &none &none
+&kp ENTER    &kp PLUS   &kp N4  &kp N5  &kp N6  &kp STAR     &none &none &none &none &none &none
+&trans       &kp N0     &kp N1  &kp N2  &kp N3  &kp EQUAL    &none &none &none &none &none &none
                               &sl SYM &mo FN  &lt_spc NUM_SUB SPACE &none &none &none
             >;
         };
@@ -95,7 +133,7 @@ letter_sub {
             bindings = <
 &sl NUM    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
 &kp ENTER  &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
+&trans     &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
                     &sl SYM &mo FN  &trans               &none &none &none
             >;
         };
@@ -105,7 +143,7 @@ letter_sub {
             bindings = <
 &sl NUM    &kp SEMI   &kp COLON &kp STAR &kp AMPS  &kp QUESTION &none &none &none &none &none &none
 &kp ENTER  &kp UNDER  &kp AT    &kp MINUS &kp PRCNT &kp SLASH    &none &none &none &none &none &none
-&trans  &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT    &none &none &none &none &none &none
+&trans     &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT    &none &none &none &none &none &none
                                 &sl SYM   &mo FN    &lt_spc SYM_SUB SPACE &none &none &none
             >;
         };
@@ -115,7 +153,7 @@ letter_sub {
             bindings = <
 &sl NUM    &kp HASH  &kp DLLR  &kp EQUAL &kp PLUS  &kp EXCL     &none &none &none &none &none &none
 &kp ENTER  &kp CARET &kp TILDE &kp PIPE  &kp GRAVE &kp BSLH     &none &none &none &none &none &none
-&trans  &kp RBRC  &kp RBKT  &kp RPAR  &kp GT    &kp SQT      &none &none &none &none &none &none
+&trans     &kp RBRC  &kp RBKT  &kp RPAR  &kp GT    &kp SQT      &none &none &none &none &none &none
                                &sl SYM   &mo FN    &trans       &none &none &none
             >;
         };
@@ -123,10 +161,10 @@ letter_sub {
         /* Layer 6: FN */
         fn_layer {
             bindings = <
-&sk_long LGUI       &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
-&kp LNLCK      &kp PG_DN  &kp UP          &sk_long LALT   &sk_long LCTRL  &kp INS      &none &none &none &none &none &none
-&kp SLCK       &kp LEFT   &kp DOWN        &kp RIGHT  &kp PSCRN  &kp DEL      &none &none &none &none &none &none
-                                          &sl SYM    &trans     &sl NUM      &none &none &none
+&td_gui    &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
+&kp LNLCK  &kp PG_DN  &kp UP          &td_alt    &td_ctrl   &kp INS      &none &none &none &none &none &none
+&kp SLCK   &kp LEFT   &kp DOWN        &kp RIGHT  &kp PSCRN  &kp DEL      &none &none &none &none &none &none
+                                      &sl SYM    &trans     &sl NUM      &none &none &none
             >;
         };
 
