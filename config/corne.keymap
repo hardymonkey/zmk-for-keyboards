@@ -39,7 +39,6 @@
             release-after-ms = <60000>; /* ค้างรอไว้ได้นานถึง 30 วินาที */
             quick-release;              /* ปลดล็อกทันทีเมื่อกดปุ่มอักขระถัดไป */
             ignore-modifiers;           /* อนุญาตให้กด Modifier อื่นซ้ำเพื่อผสมกันได้ */
-            retro-toggle;                 /* กดซ้ำปุ่มเดิมเพื่อยกเลิก/ปิด Sticky */
         };
 
         /* Hold-Tap: กดค้าง = Toggle Caps Lock / กดปล่อย = Sticky Shift */
