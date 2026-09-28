@@ -30,64 +30,13 @@
             bindings = <&mo>, <&kp>;
         };
 
-        /* Custom Sticky Key ที่ค้างไว้ได้นานโดยไม่หลุด timeout เอง */
-        sk_long: sticky_key_long {
-            compatible = "zmk,behavior-sticky-key";
-            label = "STICKY_KEY_LONG";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <60000>; /* ค้างรอไว้ได้นานถึง 60 วินาที */
-            quick-release;              /* ปลดล็อกทันทีเมื่อกดปุ่มอักขระถัดไป */
-            ignore-modifiers;           /* อนุญาตให้กด Modifier อื่นซ้ำเพื่อผสมกันได้ */
-        };
-
-        /* Hold-Tap: กดค้าง = Toggle Caps Lock / กดปล่อย = Sticky Shift */
-        ht_shift_caps: hold_tap_shift_caps {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_SHIFT_CAPS";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";      /* เน้นเปิด Caps Lock เมื่อกดค้างเกิน tapping-term */
-            tapping-term-ms = <200>;         /* ระยะเวลากดค้าง (มิลลิวินาที) */
-            bindings = <&kp>, <&sk_long>;   /* Hold = kp (CAPS), Tap = sk_long (LSHFT) */
-        };
-
-        /* Tap-Dance: กด 1 ที = Sticky Shift / กด 2 ทีติดกัน = สั่งยกเลิก Sticky (&skc) */
-        td_shift_toggle: tap_dance_shift_toggle {
+        /* Tap-Dance Shift: 1 ที = Shift ปกติ, 2 ที = Shift Lock (&kt), 3 ที = Caps Lock */
+        td_shift_advanced: tap_dance_shift_advanced {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_SHIFT_TOGGLE";
+            label = "TAP_DANCE_SHIFT_ADVANCED";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&ht_shift_caps CAPS LSHFT>, <&kp K_CANCEL>;
-        };
-
-        /* --- CONTROL (CTRL) --- */
-        /* Tap-Dance: กด 1 ที = Sticky Ctrl / กด 2 ที = Cancel (&skc) */
-        td_ctrl: tap_dance_ctrl {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_CTRL";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk_long LCTRL>, <&kp K_CANCEL>;
-        };
-
-        /* --- ALT --- */
-        /* Tap-Dance: กด 1 ที = Sticky Alt / กด 2 ที = Cancel (&skc) */
-        td_alt: tap_dance_alt {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_ALT";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk_long LALT>, <&kp K_CANCEL>;
-        };
-
-        /* --- GUI (WIN / CMD) --- */
-        /* Tap-Dance: กด 1 ที = Sticky GUI / กด 2 ที = Cancel (&skc) */
-        td_gui: tap_dance_gui {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_GUI";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk_long LGUI>, <&kp K_CANCEL>;
+            tapping-term-ms = <250>; /* ปรับเวลาหน้าต่างการกดเป็น 250ms เพื่อให้เคาะ 3 ครั้งได้ง่ายขึ้น */
+            bindings = <&kp LSHFT>, <&kt LSHFT>, <&kp CAPS>;
         };
 
     };
@@ -104,7 +53,7 @@
             bindings = <
 &sl NUM            &kp P  &kp W  &kp R  &kp A  &kp F    &none &none &none &none &none &none
 &kp ENTER          &kp D  &kp T  &kp H  &kp E  &kp O    &none &none &none &none &none &none
-&td_shift_toggle   &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
+&td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U    &none &none &none &none &none &none
                          &sl SYM &mo FN &lt_spc LETTER_SUB SPACE &none &none &none
             >;
         };
@@ -161,8 +110,8 @@ letter_sub {
         /* Layer 6: FN */
         fn_layer {
             bindings = <
-&td_gui    &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
-&kp LNLCK  &kp PG_DN  &kp UP          &td_alt    &td_ctrl   &kp INS      &none &none &none &none &none &none
+&kt LGUI   &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
+&kp LNLCK  &kp PG_DN  &kp UP          &kt LALT   &kt LCTRL  &kp INS      &none &none &none &none &none &none
 &kp SLCK   &kp LEFT   &kp DOWN        &kp RIGHT  &kp PSCRN  &kp DEL      &none &none &none &none &none &none
                                       &sl SYM    &trans     &sl NUM      &none &none &none
             >;
