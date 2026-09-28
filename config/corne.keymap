@@ -40,26 +40,6 @@
             bindings = <&kp LSHFT>, <&kt LSHFT>, <&kp CAPS>;
         };
 
-        /* Tap-Dance สำหรับ NUM: กด 1 ที = &sl NUM / กด 2 ที = &tog NUM */
-        td_num: tap_dance_num {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_NUM";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl NUM>, <&tog NUM>;
-        };
-
-        /* Hold-Tap SYM: ปรับจังหวะให้ &sl ทำงานสมบูรณ์ก่อนรับปุ่ม Space */
-        ht_sym_shortcut: hold_tap_sym_shortcut {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_SYM_SHORTCUT";
-            #binding-cells = <2>;
-            flavor = "balanced";       /* ปรับเป็น balanced เพื่อให้เคาะ Tap ได้ไวและเด็ดขาดขึ้น */
-            tapping-term-ms = <170>;   /* ลดเวลาลงเล็กน้อยเพื่อให้ส่ง &sl เร็วขึ้น */
-            quick-tap-ms = <125>;      /* ช่วยให้กดพิมพ์รัวๆ ต่อเนื่องได้ไม่หลุด */
-            bindings = <&mo>, <&sl>;
-        };
-
     };
 
     combos {
