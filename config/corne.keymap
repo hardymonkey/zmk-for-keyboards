@@ -178,7 +178,7 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 0>;
             layers = <NUM>;
-            bindings = <&kp QUESTION>;
+            bindings = <&kp LNLCK>;
         };
         combo_n_p1 {
             timeout-ms = <60>;
@@ -411,27 +411,27 @@
 &trans       &kp MINUS  &kp N7  &kp N8  &kp N9  &kp SLASH        &none &none &none &none &none &none
 &trans       &kp PLUS   &kp N4  &kp N5  &kp N6  &kp STAR         &none &none &none &none &none &none
 &trans       &kp N0     &kp N1  &kp N2  &kp N3  &kp EQUAL        &none &none &none &none &none &none
-                        &trans  &trans  &kp SPACE    &none &none &none
+                        &trans  &trans  &kp SPACE                &none &none &none
             >;
         };
 
         /* Layer 3: NUM_SUB — เก็บไว้เป็นข้อมูลอ้างอิง ไม่ถูกเข้าถึงโดยตรงแล้ว (ใช้ combo แทน) */
         num_sub_layer {
             bindings = <
-&kp QUESTION    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
-&kp DOT         &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
-&trans          &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
-                         &kp SQT     &kp COMMA   &trans       &none &none &none
+&kp LNLCK    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
+&kp DOT      &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
+&trans       &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
+                      &kp SQT     &kp COMMA   &trans       &none &none &none
             >;
         };
 
         /* Layer 4: SYM */
         sym_layer {
             bindings = <
-&kp K_CANCEL    &kp SEMI   &kp COLON &kp STAR  &kp AMPS  &kp QUESTION    &none &none &none &none &none &none
-&trans    &kp UNDER  &kp AT    &kp MINUS &kp PRCNT &kp SLASH       &none &none &none &none &none &none
-&trans    &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT         &none &none &none &none &none &none
-                     &trans    &trans    &kp SPACE     &none &none &none
+&kp K_CANCEL  &kp SEMI   &kp COLON &kp STAR  &kp AMPS  &kp QUESTION    &none &none &none &none &none &none
+&trans        &kp UNDER  &kp AT    &kp MINUS &kp PRCNT &kp SLASH       &none &none &none &none &none &none
+&trans        &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT         &none &none &none &none &none &none
+                         &trans    &trans    &kp SPACE                 &none &none &none
             >;
         };
 
@@ -448,10 +448,10 @@
         /* Layer 6: FN */
         fn_layer {
             bindings = <
-&kt ESC    &kp PG_UP  &kp PAUSE_BREAK &kp SLCK   &kp LNLCK  &kp HOME     &none &none &none &none &none &none
-&kp TAB    &kp PG_DN  &kp UP          &kt LALT   &kt LCTRL  &kp END      &none &none &none &none &none &none
-&trans     &kp LEFT   &kp DOWN        &kp RIGHT  &kp DEL    &kp BSPC     &none &none &none &none &none &none
-                                      &trans     &kp INS    &kp LGUI     &none &none &none
+&kt ESC    &kp PG_UP  &kp PSCRN    &kp SLCK   &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
+&kp TAB    &kp PG_DN  &kp UP       &kt LALT   &kt LCTRL          &kp END      &none &none &none &none &none &none
+&trans     &kp LEFT   &kp DOWN     &kp RIGHT  &kp DEL            &kp BSPC     &none &none &none &none &none &none
+                                   &trans     &kp INS    &kp LGUI             &none &none &none
             >;
         };
 
@@ -459,10 +459,10 @@
         shortcut_layer {
             /* Layer #7: สำหรับใส่คีย์ลัดต่างๆ เมื่อกดค้างปุ่ม SYM */
             bindings = <
-&kp LG(D)       &kp LC(N) &kp LA(F4) &kp LC(W)   &kp LC(S) &kp PSCRN        &none &none &none &none &none &none
-&kp F2          &kp F5    &kp LC(A)  &kp LC(D)   &kp LC(T) &kp LC(LS(T))    &none &none &none &none &none &none
-&kp LC(LS(Z))   &kp LC(Z) &kp LC(X)  &kp LC(C)   &kp LC(V) &kp LC(Y)        &none &none &none &none &none &none
-                                     &none     &trans     &none             &none &none &none
+&kp LG(D)       &kp LC(W)    &kp F2      &kp F5      &kp F11     &kp LC(T)       &none &none &none &none &none &none
+&kp LA(TAB)     &kp LC(A)    &kp LC(S)   &kp LC(D)   &kp LC(N)   &kp LC(LS(T))   &none &none &none &none &none &none
+&kp LC(LS(Z))   &kp LC(Z)    &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)       &none &none &none &none &none &none
+                             &none     &trans     &kp LA(F4)                     &none &none &none
             >;
         };
 
