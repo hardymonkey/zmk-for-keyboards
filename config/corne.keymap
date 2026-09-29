@@ -62,7 +62,7 @@
             timeout-ms = <40>;
             key-positions = <SPACE_POS 0>;
             layers = <DEFAULT>;
-            bindings = <&kp AT>;
+            bindings = <&kp QUESTION>;
         };
         combo_l_p1 {
             timeout-ms = <40>;
@@ -86,13 +86,13 @@
             timeout-ms = <40>;
             key-positions = <SPACE_POS 4>;
             layers = <DEFAULT>;
-            bindings = <&kp SQT>;
+            bindings = <&kp MINUS>;
         };
         combo_l_p5 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 5>;
             layers = <DEFAULT>;
-            bindings = <&kp TAB>;
+            bindings = <&kp AT>;
         };
         combo_l_p12 {
             timeout-ms = <40>;
@@ -164,16 +164,22 @@
             timeout-ms = <40>;
             key-positions = <SPACE_POS 36>;
             layers = <DEFAULT>;
-            bindings = <&kp COMMA>;
+            bindings = <&kp SQT>;
         };
         combo_l_p37 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 37>;
             layers = <DEFAULT>;
-            bindings = <&kp QUESTION>;
+            bindings = <&kp COMMA>;
         };
 
-        /* --- NUM layer: space + key -> num_sub value (15 combos) --- */
+        /* --- NUM layer: space + key -> num_sub value (19 combos) --- */
+        combo_n_p0 {
+            timeout-ms = <40>;
+            key-positions = <SPACE_POS 0>;
+            layers = <NUM>;
+            bindings = <&kp QUESTION>;
+        };
         combo_n_p1 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 1>;
@@ -203,6 +209,12 @@
             key-positions = <SPACE_POS 5>;
             layers = <NUM>;
             bindings = <&kp PRCNT>;
+        };
+        combo_n_p12 {
+            timeout-ms = <40>;
+            key-positions = <SPACE_POS 12>;
+            layers = <NUM>;
+            bindings = <&kp DOT>;
         };
         combo_n_p13 {
             timeout-ms = <40>;
@@ -264,14 +276,20 @@
             layers = <NUM>;
             bindings = <&kp DLLR>;
         };
-
-        /* --- SYM layer: space + key -> sym_sub value (17 combos) --- */
-        combo_s_p0 {
+        combo_n_p36 {
             timeout-ms = <40>;
-            key-positions = <SPACE_POS 0>;
-            layers = <SYM>;
-            bindings = <&sl NUM>;
+            key-positions = <SPACE_POS 36>;
+            layers = <NUM>;
+            bindings = <&kp SQT>;
         };
+        combo_n_p37 {
+            timeout-ms = <40>;
+            key-positions = <SPACE_POS 37>;
+            layers = <NUM>;
+            bindings = <&kp COMMA>;
+        };
+
+        /* --- SYM layer: space + key -> sym_sub value (15 combos) --- */
         combo_s_p1 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 1>;
@@ -301,12 +319,6 @@
             key-positions = <SPACE_POS 5>;
             layers = <SYM>;
             bindings = <&kp EXCL>;
-        };
-        combo_s_p12 {
-            timeout-ms = <40>;
-            key-positions = <SPACE_POS 12>;
-            layers = <SYM>;
-            bindings = <&kp ENTER>;
         };
         combo_s_p13 {
             timeout-ms = <40>;
@@ -379,17 +391,17 @@
 &td_num              &kp P  &kp W  &kp R  &kp A  &kp F                &none &none &none &none &none &none
 &kp ENTER            &kp D  &kp T  &kp H  &kp E  &kp O                &none &none &none &none &none &none
 &td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U                &none &none &none &none &none &none
-                     &ht_sym_shortcut SHORTCUT SYM   &mo FN    &kp SPACE    &none &none &none
+                     &mo FN &ht_sym_shortcut SHORTCUT SYM   &kp SPACE   &none &none &none
             >;
         };
 
         /* Layer 1: LETTER_SUB — เก็บไว้เป็นข้อมูลอ้างอิง ไม่ถูกเข้าถึงโดยตรงแล้ว (ใช้ combo แทน) */
         letter_sub {
             bindings = <
-&kp AT   &kp J  &kp M  &kp B  &kp SQT   &kp TAB        &none &none &none &none &none &none
-&kp DOT  &kp V  &kp C  &kp L  &kp Z     &kp Q          &none &none &none &none &none &none
-&trans   &kp X  &kp G  &kp K  &kp DQT   &kp BSPC       &none &none &none &none &none &none
-                &kp COMMA    &kp QUESTION   &trans     &none &none &none
+&kp QUESTION    &kp J       &kp M  &kp B  &kp MINUS &kp AT      &none &none &none &none &none &none
+&kp DOT         &kp V       &kp C  &kp L  &kp Z     &kp Q       &none &none &none &none &none &none
+&trans          &kp X       &kp G  &kp K  &kp DQT   &kp BSPC    &none &none &none &none &none &none
+                &kp SQT     &kp COMMA   &trans                  &none &none &none
             >;
         };
 
@@ -406,17 +418,17 @@
         /* Layer 3: NUM_SUB — เก็บไว้เป็นข้อมูลอ้างอิง ไม่ถูกเข้าถึงโดยตรงแล้ว (ใช้ combo แทน) */
         num_sub_layer {
             bindings = <
-&trans    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
-&trans    &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
-&trans    &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
-                   &trans  &trans  &trans               &none &none &none
+&kp QUESTION    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
+&kp DOT         &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
+&trans          &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
+                         &kp SQT     &kp COMMA   &trans       &none &none &none
             >;
         };
 
         /* Layer 4: SYM */
         sym_layer {
             bindings = <
-&trans    &kp SEMI   &kp COLON &kp STAR  &kp AMPS  &kp QUESTION    &none &none &none &none &none &none
+&kp K_CANCEL    &kp SEMI   &kp COLON &kp STAR  &kp AMPS  &kp QUESTION    &none &none &none &none &none &none
 &trans    &kp UNDER  &kp AT    &kp MINUS &kp PRCNT &kp SLASH       &none &none &none &none &none &none
 &trans    &kp LBRC   &kp LBKT  &kp LPAR  &kp LT    &kp DQT         &none &none &none &none &none &none
                      &trans    &trans    &kp SPACE     &none &none &none
@@ -426,20 +438,20 @@
         /* Layer 5: SYM_SUB — เก็บไว้เป็นข้อมูลอ้างอิง ไม่ถูกเข้าถึงโดยตรงแล้ว (ใช้ combo แทน) */
         sym_sub_layer {
             bindings = <
-&sl NUM    &kp HASH  &kp DLLR  &kp EQUAL &kp PLUS  &kp EXCL     &none &none &none &none &none &none
-&kp ENTER  &kp CARET &kp TILDE &kp PIPE  &kp GRAVE &kp BSLH     &none &none &none &none &none &none
+&none      &kp HASH  &kp DLLR  &kp EQUAL &kp PLUS  &kp EXCL     &none &none &none &none &none &none
+&trans     &kp CARET &kp TILDE &kp PIPE  &kp GRAVE &kp BSLH     &none &none &none &none &none &none
 &trans     &kp RBRC  &kp RBKT  &kp RPAR  &kp GT    &kp SQT      &none &none &none &none &none &none
-                               &sl SYM   &mo FN    &trans       &none &none &none
+                     &none    &none   &trans                    &none &none &none
             >;
         };
 
-        /* Layer 6: FN */
+        /* Layer 6: FN */ &kp LNLCK &kp SLCK &kp PSCRN
         fn_layer {
             bindings = <
-&kt LGUI   &kp PG_UP  &kp PAUSE_BREAK &kp END    &kp HOME   &kp ESC      &none &none &none &none &none &none
-&kp LNLCK  &kp PG_DN  &kp UP          &kt LALT   &kt LCTRL  &kp INS      &none &none &none &none &none &none
-&kp SLCK   &kp LEFT   &kp DOWN        &kp RIGHT  &kp PSCRN  &kp DEL      &none &none &none &none &none &none
-                                      &trans     &trans     &trans       &none &none &none
+&kt ESC    &kp PG_UP  &kp PAUSE_BREAK &kp SLCK   &kp LNLCK  &kp HOME     &none &none &none &none &none &none
+&kp TAB    &kp PG_DN  &kp UP          &kt LALT   &kt LCTRL  &kp END      &none &none &none &none &none &none
+&trans     &kp LEFT   &kp DOWN        &kp RIGHT  &kp DEL    &kp BSPC     &none &none &none &none &none &none
+                                      &trans     &kp INS    &kp LGUI     &none &none &none
             >;
         };
 
@@ -447,10 +459,10 @@
         shortcut_layer {
             /* Layer #7: สำหรับใส่คีย์ลัดต่างๆ เมื่อกดค้างปุ่ม SYM */
             bindings = <
-&kp ESC  &kp LC(C)  &kp LC(V)  &kp LC(Z)  &kp LC(Y)  &none    &none &none &none &none &none &none
-&kp TAB  &none      &none      &none      &none      &none    &none &none &none &none &none &none
-&none    &none      &none      &none      &none      &none    &none &none &none &none &none &none
-                               &trans     &trans     &trans    &none &none &none
+&kp LG(D)       &kp LC(N) &kp LA(F4) &kp LC(W)   &kp LC(S) &kp PSCRN        &none &none &none &none &none &none
+&kp F2          &kp F5    &kp LC(A)  &kp LC(D)   &kp LC(T) &kp LC(LS(T))    &none &none &none &none &none &none
+&kp LC(LS(Z))   &kp LC(Z) &kp LC(X)  &kp LC(C)   &kp LC(V) &kp LC(Y)        &none &none &none &none &none &none
+                                     &none     &trans     &none             &none &none &none
             >;
         };
 
