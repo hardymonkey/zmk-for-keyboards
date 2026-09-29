@@ -445,7 +445,7 @@
             >;
         };
 
-        /* Layer 6: FN */ &kp LNLCK &kp SLCK &kp PSCRN
+        /* Layer 6: FN */
         fn_layer {
             bindings = <
 &kt ESC    &kp PG_UP  &kp PAUSE_BREAK &kp SLCK   &kp LNLCK  &kp HOME     &none &none &none &none &none &none
