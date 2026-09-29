@@ -58,12 +58,6 @@
         compatible = "zmk,combos";
 
         /* --- LETTER layer: space + key -> letter_sub value (19 combos) --- */
-        combo_l_p0 {
-            timeout-ms = <40>;
-            key-positions = <SPACE_POS 0>;
-            layers = <DEFAULT>;
-            bindings = <&kp QUESTION>;
-        };
         combo_l_p1 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 1>;
@@ -174,12 +168,6 @@
         };
 
         /* --- NUM layer: space + key -> num_sub value (19 combos) --- */
-        combo_n_p0 {
-            timeout-ms = <40>;
-            key-positions = <SPACE_POS 0>;
-            layers = <NUM>;
-            bindings = <&kp QUESTION>;
-        };
         combo_n_p1 {
             timeout-ms = <40>;
             key-positions = <SPACE_POS 1>;
