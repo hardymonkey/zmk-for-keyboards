@@ -37,7 +37,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_NUM";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <280>;
             bindings = <&sl NUM>, <&tog NUM>;
         };
 
@@ -58,220 +58,232 @@
         compatible = "zmk,combos";
 
         /* --- LETTER layer: space + key -> letter_sub value (19 combos) --- */
+        combo_l_p0 {
+            timeout-ms = <60>;
+            key-positions = <SPACE_POS 0>;
+            layers = <DEFAULT>;
+            bindings = <&kp QUESTION>;
+        };
         combo_l_p1 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 1>;
             layers = <DEFAULT>;
             bindings = <&kp J>;
         };
         combo_l_p2 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 2>;
             layers = <DEFAULT>;
             bindings = <&kp M>;
         };
         combo_l_p3 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 3>;
             layers = <DEFAULT>;
             bindings = <&kp B>;
         };
         combo_l_p4 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 4>;
             layers = <DEFAULT>;
             bindings = <&kp MINUS>;
         };
         combo_l_p5 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 5>;
             layers = <DEFAULT>;
             bindings = <&kp AT>;
         };
         combo_l_p12 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 12>;
             layers = <DEFAULT>;
             bindings = <&kp DOT>;
         };
         combo_l_p13 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 13>;
             layers = <DEFAULT>;
             bindings = <&kp V>;
         };
         combo_l_p14 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 14>;
             layers = <DEFAULT>;
             bindings = <&kp C>;
         };
         combo_l_p15 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 15>;
             layers = <DEFAULT>;
             bindings = <&kp L>;
         };
         combo_l_p16 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 16>;
             layers = <DEFAULT>;
             bindings = <&kp Z>;
         };
         combo_l_p17 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 17>;
             layers = <DEFAULT>;
             bindings = <&kp Q>;
         };
         combo_l_p25 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 25>;
             layers = <DEFAULT>;
             bindings = <&kp X>;
         };
         combo_l_p26 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 26>;
             layers = <DEFAULT>;
             bindings = <&kp G>;
         };
         combo_l_p27 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 27>;
             layers = <DEFAULT>;
             bindings = <&kp K>;
         };
         combo_l_p28 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 28>;
             layers = <DEFAULT>;
             bindings = <&kp DQT>;
         };
         combo_l_p29 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 29>;
             layers = <DEFAULT>;
             bindings = <&kp BSPC>;
         };
         combo_l_p36 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <DEFAULT>;
             bindings = <&kp SQT>;
         };
         combo_l_p37 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <DEFAULT>;
             bindings = <&kp COMMA>;
         };
 
         /* --- NUM layer: space + key -> num_sub value (19 combos) --- */
+        combo_n_p0 {
+            timeout-ms = <60>;
+            key-positions = <SPACE_POS 0>;
+            layers = <NUM>;
+            bindings = <&kp QUESTION>;
+        };
         combo_n_p1 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 1>;
             layers = <NUM>;
             bindings = <&kp F12>;
         };
         combo_n_p2 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 2>;
             layers = <NUM>;
             bindings = <&kp F7>;
         };
         combo_n_p3 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 3>;
             layers = <NUM>;
             bindings = <&kp F8>;
         };
         combo_n_p4 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 4>;
             layers = <NUM>;
             bindings = <&kp F9>;
         };
         combo_n_p5 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 5>;
             layers = <NUM>;
             bindings = <&kp PRCNT>;
         };
         combo_n_p12 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 12>;
             layers = <NUM>;
             bindings = <&kp DOT>;
         };
         combo_n_p13 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 13>;
             layers = <NUM>;
             bindings = <&kp F11>;
         };
         combo_n_p14 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 14>;
             layers = <NUM>;
             bindings = <&kp F4>;
         };
         combo_n_p15 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 15>;
             layers = <NUM>;
             bindings = <&kp F5>;
         };
         combo_n_p16 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 16>;
             layers = <NUM>;
             bindings = <&kp F6>;
         };
         combo_n_p17 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 17>;
             layers = <NUM>;
             bindings = <&kp AMPS>;
         };
         combo_n_p25 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 25>;
             layers = <NUM>;
             bindings = <&kp F10>;
         };
         combo_n_p26 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 26>;
             layers = <NUM>;
             bindings = <&kp F1>;
         };
         combo_n_p27 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 27>;
             layers = <NUM>;
             bindings = <&kp F2>;
         };
         combo_n_p28 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 28>;
             layers = <NUM>;
             bindings = <&kp F3>;
         };
         combo_n_p29 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 29>;
             layers = <NUM>;
             bindings = <&kp DLLR>;
         };
         combo_n_p36 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <NUM>;
             bindings = <&kp SQT>;
         };
         combo_n_p37 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <NUM>;
             bindings = <&kp COMMA>;
@@ -279,91 +291,91 @@
 
         /* --- SYM layer: space + key -> sym_sub value (15 combos) --- */
         combo_s_p1 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 1>;
             layers = <SYM>;
             bindings = <&kp HASH>;
         };
         combo_s_p2 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 2>;
             layers = <SYM>;
             bindings = <&kp DLLR>;
         };
         combo_s_p3 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 3>;
             layers = <SYM>;
             bindings = <&kp EQUAL>;
         };
         combo_s_p4 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 4>;
             layers = <SYM>;
             bindings = <&kp PLUS>;
         };
         combo_s_p5 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 5>;
             layers = <SYM>;
             bindings = <&kp EXCL>;
         };
         combo_s_p13 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 13>;
             layers = <SYM>;
             bindings = <&kp CARET>;
         };
         combo_s_p14 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 14>;
             layers = <SYM>;
             bindings = <&kp TILDE>;
         };
         combo_s_p15 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 15>;
             layers = <SYM>;
             bindings = <&kp PIPE>;
         };
         combo_s_p16 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 16>;
             layers = <SYM>;
             bindings = <&kp GRAVE>;
         };
         combo_s_p17 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 17>;
             layers = <SYM>;
             bindings = <&kp BSLH>;
         };
         combo_s_p25 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 25>;
             layers = <SYM>;
             bindings = <&kp RBRC>;
         };
         combo_s_p26 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 26>;
             layers = <SYM>;
             bindings = <&kp RBKT>;
         };
         combo_s_p27 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 27>;
             layers = <SYM>;
             bindings = <&kp RPAR>;
         };
         combo_s_p28 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 28>;
             layers = <SYM>;
             bindings = <&kp GT>;
         };
         combo_s_p29 {
-            timeout-ms = <40>;
+            timeout-ms = <60>;
             key-positions = <SPACE_POS 29>;
             layers = <SYM>;
             bindings = <&kp SQT>;
@@ -433,7 +445,7 @@
             >;
         };
 
-        /* Layer 6: FN */ 
+        /* Layer 6: FN */ &kp LNLCK &kp SLCK &kp PSCRN
         fn_layer {
             bindings = <
 &kt ESC    &kp PG_UP  &kp PAUSE_BREAK &kp SLCK   &kp LNLCK  &kp HOME     &none &none &none &none &none &none
