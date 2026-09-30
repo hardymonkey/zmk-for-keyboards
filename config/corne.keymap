@@ -164,13 +164,13 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <DEFAULT>;
-            bindings = <&kp SQT>;
+            bindings = <&kp COMMA>;
         };
         combo_l_p37 {
             timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <DEFAULT>;
-            bindings = <&kp COMMA>;
+            bindings = <&kp SQT>;
         };
 
         /* --- NUM layer: space + key -> num_sub value (19 combos) --- */
@@ -280,13 +280,13 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <NUM>;
-            bindings = <&kp SQT>;
+            bindings = <&kp COMMA>;
         };
         combo_n_p37 {
             timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <NUM>;
-            bindings = <&kp COMMA>;
+            bindings = <&kp SQT>;
         };
 
         /* --- SYM layer: space + key -> sym_sub value (15 combos) --- */
