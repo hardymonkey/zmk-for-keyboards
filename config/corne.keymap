@@ -22,6 +22,15 @@
 #define SPACE_POS 38
 
 / {
+
+    /* ปรับ sticky-key (&sk) ส่วนกลาง: ให้ Alt/Ctrl/GUI (และ Shift ถ้าใช้ &sk ด้วย)
+     * สะสมรวมกันได้ (ignore-modifiers) และปล่อยอัตโนมัติหลัง "คีย์ปกติ" ถัดไปถูกปล่อย
+     * (ไม่ใช่ตอนกดลง — ถ้าอยากให้ปล่อยทันทีตอนกดคีย์ถัดไปลง ให้เพิ่ม quick-release; เอง) */
+    &sk {
+        release-after-ms = <2000>;
+        ignore-modifiers;
+    };
+
     behaviors {
         /* Tap-Dance Shift: 1 ที = Shift ปกติ, 2 ที = Shift Lock (&kt), 3 ที = Caps Lock */
         td_shift_advanced: tap_dance_shift_advanced {
@@ -50,16 +59,6 @@
             tapping-term-ms = <170>;   /* ลดเวลาลงเล็กน้อยเพื่อให้ส่ง &sl เร็วขึ้น */
             quick-tap-ms = <125>;      /* ช่วยให้กดพิมพ์รัวๆ ต่อเนื่องได้ไม่หลุด */
             bindings = <&mo>, <&sl>;
-        };
-
-        /* Custom Sticky Key สำหรับ Modifiers */
-        sk_mod: sticky_key_modifiers {
-            compatible = "zmk,behavior-sticky-key";
-            label = "STICKY_KEY_MODIFIERS";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <60000>; /* ค้างสถานะไว้นานสูงสุด 2 วินาที (ถ้าไม่กดอะไรเลยจะดับเอง) */
-            quick-release;             /* ปลดทันทีที่กดคีย์อักขระถัดไป 1 ปุ่ม */
         };
 
     };
@@ -458,16 +457,15 @@
         /* Layer 6: FN */
         fn_layer {
             bindings = <
-&kp ESC    &kp PG_UP  &kp PSCRN    &kp SLCK   &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
-&kp TAB    &kp PG_DN  &kp UP       &sk_mod LALT   &sk_mod LCTRL          &kp END      &none &none &none &none &none &none
-&trans     &kp LEFT   &kp DOWN     &kp RIGHT  &kp DEL            &kp BSPC     &none &none &none &none &none &none
-                                   &trans     &kp INS            &sk_mod LGUI     &none &none &none
+&kp ESC        &kp PG_UP  &kp PSCRN    &kp SLCK   &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
+&kp TAB        &kp PG_DN  &kp UP       &sk LALT   &sk LCTRL          &kp END      &none &none &none &none &none &none
+&kp K_CANCEL   &kp LEFT   &kp DOWN     &kp RIGHT  &kp DEL            &kp BSPC     &none &none &none &none &none &none
+                          &trans       &kp INS    &sk LGUI                        &none &none &none
             >;
         };
 
-        /* Layer 7: SHORT_CUT */
+        /* Layer 7: SHORT_CUT สำหรับใส่คีย์ลัดต่างๆ เมื่อกดค้างปุ่ม SYM */
         shortcut_layer {
-            /* Layer #7: สำหรับใส่คีย์ลัดต่างๆ เมื่อกดค้างปุ่ม SYM */
             bindings = <
 &kp LG(D)       &kp LC(W)    &kp F2      &kp F5      &kp F11     &kp LC(T)       &none &none &none &none &none &none
 &kp LA(TAB)     &kp LC(A)    &kp LC(S)   &kp LC(D)   &kp LC(N)   &kp LC(LS(T))   &none &none &none &none &none &none
