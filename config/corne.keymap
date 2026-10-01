@@ -451,7 +451,7 @@
 &kp ESC    &kp PG_UP  &kp PSCRN    &kp SLCK   &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
 &kp TAB    &kp PG_DN  &kp UP       &kt LALT   &kt LCTRL          &kp END      &none &none &none &none &none &none
 &trans     &kp LEFT   &kp DOWN     &kp RIGHT  &kp DEL            &kp BSPC     &none &none &none &none &none &none
-                                   &trans     &kp INS            &kp LGUI     &none &none &none
+                                   &trans     &kp INS            &kt LGUI     &none &none &none
             >;
         };
 
@@ -462,7 +462,7 @@
 &kp LG(D)       &kp LC(W)    &kp F2      &kp F5      &kp F11     &kp LC(T)       &none &none &none &none &none &none
 &kp LA(TAB)     &kp LC(A)    &kp LC(S)   &kp LC(D)   &kp LC(N)   &kp LC(LS(T))   &none &none &none &none &none &none
 &kp LC(LS(Z))   &kp LC(Z)    &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)       &none &none &none &none &none &none
-                             &none       &trans      &kp LA(F4)                     &none &none &none
+                             &kp LGUI       &trans      &kp LA(F4)                     &none &none &none
             >;
         };
 
