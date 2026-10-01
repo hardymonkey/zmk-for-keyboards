@@ -52,6 +52,17 @@
             bindings = <&mo>, <&sl>;
         };
 
+        /* Custom Sticky Key สำหรับ Modifiers */
+        sk_mod: sticky_key_modifiers {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_KEY_MODIFIERS";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <60000>; /* ค้างสถานะไว้นานสูงสุด 2 วินาที (ถ้าไม่กดอะไรเลยจะดับเอง) */
+            quick-release;             /* ปลดทันทีที่กดคีย์อักขระถัดไป 1 ปุ่ม */
+            ignore-modifiers;          /* กด Modifier ซ้อนกันหลายตัวได้โดยไม่ล้างสถานะกันเอง */
+        };
+
     };
 
     combos {
@@ -449,9 +460,9 @@
         fn_layer {
             bindings = <
 &kp ESC    &kp PG_UP  &kp PSCRN    &kp SLCK   &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
-&kp TAB    &kp PG_DN  &kp UP       &kt LALT   &kt LCTRL          &kp END      &none &none &none &none &none &none
+&kp TAB    &kp PG_DN  &kp UP       &sk_mod LALT   &sk_mod LCTRL          &kp END      &none &none &none &none &none &none
 &trans     &kp LEFT   &kp DOWN     &kp RIGHT  &kp DEL            &kp BSPC     &none &none &none &none &none &none
-                                   &trans     &kp INS            &kt LGUI     &none &none &none
+                                   &trans     &kp INS            &sk_mod LGUI     &none &none &none
             >;
         };
 
