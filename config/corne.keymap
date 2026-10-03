@@ -175,13 +175,13 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <DEFAULT>;
-            bindings = <&kp SQT>;
+            bindings = <&kp COMMA>;
         };
         combo_l_p37 {
             timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <DEFAULT>;
-            bindings = <&kp COMMA>;
+            bindings = <&kp SQT>;
         };
 
         /* --- NUM layer: space + key -> num_sub value (19 combos) --- */
@@ -291,13 +291,13 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <NUM>;
-            bindings = <&kp SQT>;
+            bindings = <&kp KP_COMMA>;
         };
         combo_n_p37 {
             timeout-ms = <60>;
             key-positions = <SPACE_POS 37>;
             layers = <NUM>;
-            bindings = <&kp KP_COMMA>;
+            bindings = <&kp SQT>;
         };
 
         /* --- SYM layer: space + key -> sym_sub value (15 combos) --- */
@@ -402,7 +402,7 @@
 &td_num              &kp P  &kp W  &kp R  &kp A  &kp F                &none &none &none &none &none &none
 &kp ENTER            &kp D  &kp T  &kp H  &kp E  &kp O                &none &none &none &none &none &none
 &td_shift_advanced   &kp Y  &kp S  &kp N  &kp I  &kp U                &none &none &none &none &none &none
-                     &mo FN    &ht_sym_shortcut SHORTCUT SYM   &kp SPACE   &none &none &none
+                     &ht_sym_shortcut SHORTCUT SYM   &mo FN    &kp SPACE   &none &none &none
             >;
         };
 
@@ -412,7 +412,7 @@
 &kp QUESTION    &kp J       &kp M  &kp B  &kp MINUS &kp AT      &none &none &none &none &none &none
 &kp DOT         &kp V       &kp C  &kp L  &kp Z     &kp Q       &none &none &none &none &none &none
 &trans          &kp X       &kp G  &kp K  &kp DQT   &kp BSPC    &none &none &none &none &none &none
-                &kp SQT     &kp COMMA   &trans                  &none &none &none
+                &kp COMMA   &kp SQT     &trans                  &none &none &none
             >;
         };
 
@@ -432,7 +432,7 @@
 &kp LNLCK    &kp F12  &kp F7  &kp F8  &kp F9  &kp PRCNT    &none &none &none &none &none &none
 &kp KP_DOT   &kp F11  &kp F4  &kp F5  &kp F6  &kp AMPS     &none &none &none &none &none &none
 &trans       &kp F10  &kp F1  &kp F2  &kp F3  &kp DLLR     &none &none &none &none &none &none
-                      &kp SQT    &kp KP_COMMA    &trans       &none &none &none
+             &kp COMMA   &kp SQT     &trans                &none &none &none
             >;
         };
 
@@ -462,17 +462,17 @@
 &kp ESC        &kp PG_UP  &kp PSCRN    &kp SLCK       &kp PAUSE_BREAK    &kp HOME     &none &none &none &none &none &none
 &kp TAB        &kp PG_DN  &kp UP       &sk_mod LALT   &sk_mod LCTRL      &kp END      &none &none &none &none &none &none
 &kp K_CANCEL   &kp LEFT   &kp DOWN     &kp RIGHT      &kp DEL            &kp BSPC     &none &none &none &none &none &none
-                          &trans       &kp INS        &sk_mod LGUI                    &none &none &none
+                          &kp INS      &trans         &sk_mod LGUI                    &none &none &none
             >;
         };
 
         /* Layer 7: SHORT_CUT สำหรับใส่คีย์ลัดต่างๆ เมื่อกดค้างปุ่ม SYM */
         shortcut_layer {
             bindings = <
-&kp LG(D)       &kp LC(W)    &kp F2      &kp F5      &kp F11     &kp LC(T)       &none &none &none &none &none &none
-&kp LA(TAB)     &kp LC(A)    &kp LC(S)   &kp LC(D)   &kp LC(N)   &kp LC(LS(T))   &none &none &none &none &none &none
+&kp LG(D)       &kp LC(W)    &kp F2      &kp F5      &kp F11     &kp LA(F4)      &none &none &none &none &none &none
+&kp LA(TAB)     &kp LC(A)    &kp LC(S)   &kp LC(D)   &kp LC(N)   &kp LC(T)       &none &none &none &none &none &none
 &kp LC(LS(Z))   &kp LC(Z)    &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LC(Y)       &none &none &none &none &none &none
-                             &kp LGUI       &trans      &kp LA(F4)                     &none &none &none
+                             &trans      &kp LGUI    &kp LC(LS(T))                   &none &none &none
             >;
         };
 
