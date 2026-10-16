@@ -291,7 +291,7 @@
             timeout-ms = <60>;
             key-positions = <SPACE_POS 36>;
             layers = <NUM>;
-            bindings = <&kp KP_COMMA>;
+            bindings = <&kp COMMA>;
         };
         combo_n_p37 {
             timeout-ms = <60>;
